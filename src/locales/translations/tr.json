@@ -1,0 +1,9 @@
+{
+  "signUp": "Kayit ol",
+  "username": "Kullanici Adi",
+  "email": "E-posta",
+  "password": "Parola",
+  "passwordRepeat": "Parola Tekrari",
+  "passwordMismatch": "Parola eşleşmiyor",
+  "genericError": "Beklenmeyen bir hata oluştu. Lutfen tekrar deneyin."
+}
