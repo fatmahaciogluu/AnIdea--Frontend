@@ -55,11 +55,12 @@ export function SignUp() {
       });
       setSuccessMessage(response.data.message);
     } catch (axiosError) {
-      if (
-        axiosError.response?.data &&
-        axiosError.response.data.status === 400
-      ) {
-        setErrors(axiosError.response.data.validationErrors);
+      if (axiosError.response?.data) {
+        if (axiosError.response.data.status === 400) {
+          setErrors(axiosError.response.data.validationErrors);
+        } else {
+          setGeneralError(axiosError.response.data.message);
+        }
       } else {
         setGeneralError(t("genericError"));
       }
@@ -105,7 +106,7 @@ export function SignUp() {
             <Input
               id="passwordRepeat"
               label={t("passwordRepeat")}
-              error={errors.passwordRepeat}
+              error={passwordRepeatError}
               onChange={(event) => setPasswordRepeat(event.target.value)}
               type="password"
             />
@@ -130,7 +131,7 @@ export function SignUp() {
             </button>
           </div>
         </form>
-        <LanguageSelector/>
+        <LanguageSelector />
       </div>
     </div>
   );

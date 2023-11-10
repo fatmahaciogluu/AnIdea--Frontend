@@ -3,6 +3,12 @@ import { useTranslation } from "react-i18next";
 export function LanguageSelector() {
 
     const {i18n} = useTranslation();
+
+    const onSelectLanguage = (language)=>
+    {
+        i18n.changeLanguage(language);
+    localStorage.setItem("lang", language);
+};
   return (
     <>
       <img
